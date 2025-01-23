@@ -1,0 +1,4 @@
+.hero-container {
+    background-color: var(--theme-blue);
+    padding: 30px;
+}

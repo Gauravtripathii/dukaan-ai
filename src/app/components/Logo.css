@@ -1,0 +1,16 @@
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-container > .stick {
+    border: 2px solid var(--theme-black);
+    border-radius: 10px;
+    height: 50px;
+}
+
+.logo-container > .text {
+    color: var(--theme-white);
+    font-size: 40px;
+}
