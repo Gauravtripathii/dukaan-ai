@@ -14,3 +14,16 @@
     color: var(--theme-white);
     font-size: 40px;
 }
+
+@media only screen and (max-width: 670px) {
+    .logo-container {
+        gap: 5px;
+        width: 100%;
+    }
+    .logo-container > .text {
+        font-size: 30px;
+    }
+    .logo-container > .stick {
+        height: 35px;
+    }
+}

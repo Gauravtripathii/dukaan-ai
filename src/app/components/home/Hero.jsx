@@ -1,6 +1,7 @@
 import "./Hero.css";
 
 import Logo from "../Logo";
+import Image from "next/image";
 
 export default function Hero() {
     return (
@@ -20,7 +21,14 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="right"></div>
+            <div className="right">
+                <Image
+                    src="/hero.gif"
+                    alt="hero image"
+                    width={500}
+                    height={500}
+                />
+            </div>
         </div>
     )
 }
