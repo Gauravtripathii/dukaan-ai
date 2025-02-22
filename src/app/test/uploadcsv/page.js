@@ -32,6 +32,8 @@ export default function UploadCSV() {
                 headers: { "Content-Type": "multipart/form-data" },
             });
 
+            console.log(res)
+
             setResponse(res.data);
         } catch (err) {
             setError("Failed to upload file. Please try again.");
@@ -81,6 +83,9 @@ export default function UploadCSV() {
                     <pre
                         style={{
                             display: "flex",
+                            flexWrap: "wrap",
+                            alignItems: "center",
+                            justifyContent: "center",
                             gap: "20px",
                             marginTop: "20px"
                         }}
