@@ -10,10 +10,7 @@ export default function UploadCSV() {
     const [error, setError] = useState("");
 
     const [forecast, setForecast] = useState({
-        monthly: [{
-            time: null,
-            data: null,
-        }],
+        monthly: [],
         low_stock_items: [
             {
                 item: null,
@@ -49,7 +46,7 @@ export default function UploadCSV() {
 
             console.log("Forecast API Response : ", res.data);
             setForecast({
-                monthly: res.data.forecast,
+                monthly: Object.keys(res.data.forecast).map(key => (res.data.forecast[key])),
                 low_stock_items: res.data.low_stock_items,
                 new_pricing_strategy: res.data.new_pricing_strategy,
             });
@@ -64,7 +61,7 @@ export default function UploadCSV() {
 
     useEffect(() => {
         console.log("Forecast State : ", forecast);
-    }, [ forecast ]);
+    }, [forecast]);
 
     // useEffect(() => {
     //     if (response && response.forecast) {
@@ -94,6 +91,16 @@ export default function UploadCSV() {
             >
                 {loading ? "Uploading..." : "Upload & Predict"}
             </button>
+
+
+            {/* rendering the data */}
+            <div>
+                {forecast.monthly.map((month, index) => (
+                    <div key={index}>
+                        {month}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
