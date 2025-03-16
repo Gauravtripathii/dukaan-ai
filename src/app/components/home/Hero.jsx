@@ -3,6 +3,8 @@ import "./Hero.css";
 import Logo from "../Logo";
 import Image from "next/image";
 
+import Link from "next/link";
+
 export default function Hero() {
     return (
         <div className="hero-container">
@@ -17,7 +19,9 @@ export default function Hero() {
                     <p>
                         Your partner in business
                     </p>
-                    <button>Get Started</button>
+                    <button>
+                        <Link href="/get-started">Get Started</Link>
+                    </button>
                 </div>
             </div>
 
