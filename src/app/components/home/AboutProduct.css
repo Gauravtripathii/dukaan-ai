@@ -17,3 +17,33 @@
     width: 40%;
     height: fit-content;
 }
+
+@media only screen and (max-width: 1255px) {
+    .about-product > h1 {
+        width: 60%;
+    }
+    .about-product > .image {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .about-product > h1 {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .about-product {
+        padding: 50px 0;
+    }
+    .about-product > h1 {
+        font-size: 40px;
+    }
+}
+
+/* @media only screen and (max-width: 670px) {
+    .about-product {
+        
+    }
+} */
