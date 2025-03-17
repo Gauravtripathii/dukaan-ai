@@ -3,6 +3,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+import { redirect } from "next/navigation";
+
 import "@/app/page_styles/get-started.css";
 
 export default function FileUpload() {
@@ -32,12 +34,13 @@ export default function FileUpload() {
                 headers: { "Content-Type": "multipart/form-data" },
             });
 
-            console.log("Forecast API Response:", res.data);
             setUploaded(true);
+            console.log("Forecast API Response:", res.data);
         } catch (err) {
             console.error("Upload Error:", err);
         } finally {
             setLoading(false);
+            redirect("/dashboard");
         }
     };
 
