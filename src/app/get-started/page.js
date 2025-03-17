@@ -1,22 +1,28 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
-export default function UploadCSV() {
+import "@/app/page_styles/get-started.css";
+
+export default function FileUpload() {
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [uploaded, setUploaded] = useState(false);
 
     const handleFileChange = (event) => {
-        setFile(event.target.files[0]);
+        const selectedFile = event.target.files[0];
+        if (selectedFile) {
+            setFile(selectedFile);
+            setUploaded(false);
+        }
     };
 
     const handleUpload = async () => {
-        if (!file) {
-            return;
-        }
+        if (!file) return;
 
         setLoading(true);
+        setUploaded(false);
 
         const formData = new FormData();
         formData.append("file", file);
@@ -26,33 +32,33 @@ export default function UploadCSV() {
                 headers: { "Content-Type": "multipart/form-data" },
             });
 
-            console.log("Forecast API Response : ", res.data);
+            console.log("Forecast API Response:", res.data);
+            setUploaded(true);
         } catch (err) {
-            console.log(err)
+            console.error("Upload Error:", err);
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div
-            style={{
-                padding: "20px"
-            }}>
-            <h1>Upload CSV File</h1>
+        <div className="get-started">
+            <div className="file-upload-container">
+                <label className="upload-area">
+                    <span className="upload-text">Click or drag a file to upload</span>
+                    <input type="file" accept=".csv" className="file-input" onChange={handleFileChange} />
+                </label>
 
-            <input
-                type="file"
-                accept=".csv"
-                onChange={handleFileChange}
-            />
+                {file && <p className="file-name">Selected file: {file.name}</p>}
 
-            <button
-                onClick={handleUpload}
-                disabled={loading}
-            >
-                {loading ? "Uploading..." : "Upload & Predict"}
-            </button>
+                <button
+                    onClick={handleUpload}
+                    disabled={loading || !file}
+                    className={`upload-button ${loading ? "disabled" : ""}`}
+                >
+                    {loading ? "Uploading..." : uploaded ? "Uploaded ✅" : "Upload & Predict"}
+                </button>
+            </div>
         </div>
     );
 }
