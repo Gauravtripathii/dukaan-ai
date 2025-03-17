@@ -13,6 +13,7 @@ export default function AboutProduct() {
                 alt="hero image"
                 width={500}
                 height={500}
+                unoptimized
                 className="image"
             />
         </div>
