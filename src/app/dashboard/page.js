@@ -5,6 +5,8 @@ import "@/app/page_styles/dashboard.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+import MonthlyProjection from "../components/dashboard/MonthlyProjection/MonthlyProjection";
+
 export default function DashboardPage() {
 
     const [forecastedProfits, setForecastedProfits] = useState([]);
@@ -35,6 +37,8 @@ export default function DashboardPage() {
     }, [monthlyProjection]);
 
     return (
-        <div className="dashboard-page">dashboard</div>
+        <div className="dashboard-page">
+            <MonthlyProjection monthlyProjection={monthlyProjection} />
+        </div>
     );
 }
