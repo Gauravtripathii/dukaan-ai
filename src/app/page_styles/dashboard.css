@@ -1,8 +1,14 @@
 .dashboard-page {
+    width: 100%;
+    height: 100svh;
     padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .dashboard-page .tabular-data {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }

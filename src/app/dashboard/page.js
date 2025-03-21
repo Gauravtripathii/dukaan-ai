@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 
 import MonthlyProjection from "../components/dashboard/MonthlyProjection/MonthlyProjection";
 import SalesForecast from "../components/dashboard/SalesForecast/SalesForecast";
+import StockSummary from "../components/dashboard/StockSummary/StockSummary";
 
 export default function DashboardPage() {
 
-    const [forecastedProfits, setForecastedProfits] = useState([]);
     const [monthlyProjection, setMonthlyProjection] = useState({
         dates: [],
         dataArray: [],
@@ -19,6 +19,7 @@ export default function DashboardPage() {
         dates: [],
         dataArray: [],
     });
+    const [stockSummary, setStockSummary] = useState();
 
     useEffect(() => {
         const getForecast = async () => {
@@ -33,6 +34,7 @@ export default function DashboardPage() {
                         dates: Object.keys(res.data.forecast.sales_forecast),
                         dataArray: Object.values(res.data.forecast.sales_forecast),
                     });
+                    setStockSummary(res.data.forecast.stock_summary);
                 })
                 .catch(error => {
                     console.log(error);
@@ -51,6 +53,7 @@ export default function DashboardPage() {
                 <MonthlyProjection monthlyProjection={monthlyProjection} />
                 <SalesForecast salesForecast={salesForecast} />
             </div>
+            <StockSummary stockSummary={stockSummary} />
         </div>
     );
 }

@@ -1,0 +1,37 @@
+.stock-summary {
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 3px 7px #808080;
+    /* background-color: #f4f4f9; */
+    font-family: Arial, sans-serif;
+    /* color: #2c3e50; */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    /* color: #34495e; */
+}
+
+.summary-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.summary-grid div {
+    padding: 10px;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #3498db; /* Blue accent on the left */
+}
+
+/* Alternate color for better readability */
+.summary-grid div:nth-child(odd) {
+    /* background: #fdfdfd; */
+    border-left: 4px solid #e67e22; /* Warm orange accent */
+}
