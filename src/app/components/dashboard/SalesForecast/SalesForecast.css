@@ -1,0 +1,44 @@
+.sales-forecast-table {
+    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* border: 1px solid #808080; */
+    border-radius: 7px;
+    padding: 10px 15px;
+    box-shadow: 0 3px 7px #808080;
+}
+
+.sales-forecast-table > h1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.table {
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.table > .heading-container {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.table-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    border-radius: 5px;    
+}

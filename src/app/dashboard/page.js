@@ -6,11 +6,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import MonthlyProjection from "../components/dashboard/MonthlyProjection/MonthlyProjection";
+import SalesForecast from "../components/dashboard/SalesForecast/SalesForecast";
 
 export default function DashboardPage() {
 
     const [forecastedProfits, setForecastedProfits] = useState([]);
     const [monthlyProjection, setMonthlyProjection] = useState({
+        dates: [],
+        dataArray: [],
+    });
+    const [salesForecast, setSalesForecast] = useState({
         dates: [],
         dataArray: [],
     });
@@ -23,6 +28,10 @@ export default function DashboardPage() {
                     setMonthlyProjection({
                         dates: Object.keys(res.data.forecast.forecasted_profits),
                         dataArray: Object.values(res.data.forecast.forecasted_profits),
+                    });
+                    setSalesForecast({
+                        dates: Object.keys(res.data.forecast.sales_forecast),
+                        dataArray: Object.values(res.data.forecast.sales_forecast),
                     });
                 })
                 .catch(error => {
@@ -38,7 +47,10 @@ export default function DashboardPage() {
 
     return (
         <div className="dashboard-page">
-            <MonthlyProjection monthlyProjection={monthlyProjection} />
+            <div className="tabular-data">
+                <MonthlyProjection monthlyProjection={monthlyProjection} />
+                <SalesForecast salesForecast={salesForecast} />
+            </div>
         </div>
     );
 }

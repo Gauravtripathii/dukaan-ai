@@ -8,7 +8,7 @@ export default function ForecastedProfits({ monthlyProjection }) {
             <div className="table">
                 <div className="heading-container">
                     <span>Month</span>
-                    <span>Forecast</span>
+                    <span>Profits</span>
                     <span>(%)</span>
                 </div>
                 <div className="table-body">
