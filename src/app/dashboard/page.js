@@ -10,6 +10,7 @@ import SalesForecast from "../components/dashboard/SalesForecast/SalesForecast";
 import StockSummary from "../components/dashboard/StockSummary/StockSummary";
 import TotalSalesBox from "../components/dashboard/TotalSalesBox/TotalSalesBox";
 import PricingStrategy from "../components/dashboard/PricingStategy/PricingStategy";
+import Assistant from "../components/dashboard/Assistant/Assistant";
 
 export default function DashboardPage() {
 
@@ -65,6 +66,7 @@ export default function DashboardPage() {
             <div className="tabular-data">
                 <MonthlyProjection monthlyProjection={monthlyProjection} />
                 <SalesForecast salesForecast={salesForecast} />
+                <Assistant />
             </div>
             <div className="bottom">
                 <TotalSalesBox totalSales={totalSales} />
