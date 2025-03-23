@@ -12,3 +12,9 @@
     flex-wrap: wrap;
     gap: 20px;
 }
+
+.dashboard-page .bottom {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

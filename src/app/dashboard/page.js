@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import MonthlyProjection from "../components/dashboard/MonthlyProjection/MonthlyProjection";
 import SalesForecast from "../components/dashboard/SalesForecast/SalesForecast";
 import StockSummary from "../components/dashboard/StockSummary/StockSummary";
+import TotalSalesBox from "../components/dashboard/TotalSalesBox/TotalSalesBox";
+import PricingStrategy from "../components/dashboard/PricingStategy/PricingStategy";
 
 export default function DashboardPage() {
 
@@ -20,6 +22,11 @@ export default function DashboardPage() {
         dataArray: [],
     });
     const [stockSummary, setStockSummary] = useState();
+    const [totalSales, setTotalSales] = useState(0);
+    const [pricingStrategy, setPricingStrategy] = useState({
+        new_price: 0,
+        recommendation: "",
+    });
 
     useEffect(() => {
         const getForecast = async () => {
@@ -35,6 +42,11 @@ export default function DashboardPage() {
                         dataArray: Object.values(res.data.forecast.sales_forecast),
                     });
                     setStockSummary(res.data.forecast.stock_summary);
+                    setTotalSales(res.data.forecast.total_sales);
+                    setPricingStrategy({
+                        new_price: res.data.forecast.pricing_strategy.new_price,
+                        recommendation: res.data.forecast.pricing_strategy.recommendation,
+                    });
                 })
                 .catch(error => {
                     console.log(error);
@@ -49,11 +61,15 @@ export default function DashboardPage() {
 
     return (
         <div className="dashboard-page">
+            <StockSummary stockSummary={stockSummary} />
             <div className="tabular-data">
                 <MonthlyProjection monthlyProjection={monthlyProjection} />
                 <SalesForecast salesForecast={salesForecast} />
             </div>
-            <StockSummary stockSummary={stockSummary} />
+            <div className="bottom">
+                <TotalSalesBox totalSales={totalSales} />
+                <PricingStrategy pricingStrategy={pricingStrategy} />
+            </div>
         </div>
     );
 }

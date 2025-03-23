@@ -1,0 +1,13 @@
+.pricing-strategy {
+    width: fit-content;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid #4CAF50; /* Changed to a green color */
+    padding: 10px 20px;
+    color: white;
+    background-color: #4CAF50; /* Changed to a green color */
+    font-size: 25px;
+}
