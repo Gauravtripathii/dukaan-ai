@@ -66,7 +66,7 @@ export default function DashboardPage() {
             <div className="tabular-data">
                 <MonthlyProjection monthlyProjection={monthlyProjection} />
                 <SalesForecast salesForecast={salesForecast} />
-                <Assistant />
+                <Assistant monthlyProjection={monthlyProjection} salesForecast={salesForecast} totalSales={totalSales} pricingStrategy={pricingStrategy} stockSummary={stockSummary} />
             </div>
             <div className="bottom">
                 <TotalSalesBox totalSales={totalSales} />
