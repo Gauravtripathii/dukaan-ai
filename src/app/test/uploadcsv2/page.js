@@ -44,7 +44,7 @@ export default function UploadCSV() {
                 headers: { "Content-Type": "multipart/form-data" },
             });
 
-            console.log("Forecast API Response : ", res.data);
+            // console.log("Forecast API Response : ", res.data);
             setForecast({
                 monthly: Object.keys(res.data.forecast).map(key => (res.data.forecast[key])),
                 low_stock_items: res.data.low_stock_items,
@@ -59,9 +59,9 @@ export default function UploadCSV() {
         }
     };
 
-    useEffect(() => {
-        console.log("Forecast State : ", forecast);
-    }, [forecast]);
+    // useEffect(() => {
+    //     console.log("Forecast State : ", forecast);
+    // }, [forecast]);
 
     // useEffect(() => {
     //     if (response && response.forecast) {

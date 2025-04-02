@@ -1,7 +1,7 @@
 import "./StockSummary.css";
 
 export default function StockSummary({ stockSummary }) {
-    console.log("Stock Summary:", stockSummary);
+    // console.log("Stock Summary:", stockSummary);
 
     return (
         <div className="stock-summary">

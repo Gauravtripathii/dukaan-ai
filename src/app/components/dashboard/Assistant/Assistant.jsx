@@ -19,7 +19,7 @@ export default function Assistant({ monthlyProjection, salesForecast, totalSales
             const stringData = JSON.stringify(jsonData);
             await axios.post("/api/getChatbot/", { message, context: stringData })
             .then(response => {
-                console.log("CHATBOT: ", response.data);
+                // console.log("CHATBOT: ", response.data);
                 setMessages([
                     ...messages, { role: "user", content: message },
                     { role: "bot", content: response.data.reply }

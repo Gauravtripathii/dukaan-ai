@@ -32,7 +32,7 @@ export default function UploadCSV() {
                 headers: { "Content-Type": "multipart/form-data" },
             });
 
-            console.log(res)
+            // console.log(res)
 
             setResponse(res.data);
         } catch (err) {
@@ -45,7 +45,7 @@ export default function UploadCSV() {
     useEffect(() => {
         if (response && response.forecast) {
             const forecastArray = Object.keys(response.forecast).map(key => [key, response.forecast[key]]);
-            console.log(forecastArray);
+            // console.log(forecastArray);
             setData(forecastArray);
         }
     }, [response, error]);

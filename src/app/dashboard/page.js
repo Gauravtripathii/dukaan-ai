@@ -33,7 +33,7 @@ export default function DashboardPage() {
         const getForecast = async () => {
             await axios.get("/api/get-data/")
                 .then(res => {
-                    console.log(res.data.forecast);
+                    // console.log(res.data.forecast);
                     setMonthlyProjection({
                         dates: Object.keys(res.data.forecast.forecasted_profits),
                         dataArray: Object.values(res.data.forecast.forecasted_profits),
@@ -57,7 +57,7 @@ export default function DashboardPage() {
     }, [])
 
     useEffect(() => {
-        console.log(monthlyProjection);
+        // console.log(monthlyProjection);
     }, [monthlyProjection]);
 
     return (

@@ -35,10 +35,10 @@ export default function FileUpload() {
             });
 
             setUploaded(true);
-            console.log("Forecast API Response:", res.data);
+            // console.log("Forecast API Response:", res.data);
             await axios.post("/api/store-data", {forecast: res.data})
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
