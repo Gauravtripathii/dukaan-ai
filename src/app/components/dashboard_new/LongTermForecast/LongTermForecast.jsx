@@ -1,3 +1,4 @@
+// components/dashboard_new/LongTermForecast/LongTermForecast.js
 import "./LongTermForecast.css";
 import { useState } from "react";
 
@@ -89,19 +90,6 @@ export default function LongTermForecast({ long_term_forecast }) {
           </tbody>
         </table>
       </div>
-
-      {/* Pagination Controls (moved to header for better layout) */}
-      {/* <div className="pagination">
-        <button onClick={handlePrev} disabled={currentPage === 0} className="pagination-button">
-          Previous
-        </button>
-        <span className="pagination-info">
-          Page {currentPage + 1} of {totalPages}
-        </span>
-        <button onClick={handleNext} disabled={currentPage === totalPages - 1} className="pagination-button">
-          Next
-        </button>
-      </div> */}
     </div>
   );
 }

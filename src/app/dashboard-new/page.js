@@ -1,8 +1,12 @@
 "use client";
 
+import "@/app/page_styles/dashboard-new.css";
+
 import { useEffect, useState } from "react";
 
 import LongTermForecast from "../components/dashboard_new/LongTermForecast/LongTermForecast";
+import BusinessInsights from "../components/dashboard_new/BusinessInsights/BusinessInsights";
+import ModelMetrics from "../components/dashboard_new/ModelMatrices/ModelMatrices";
 
 
 export default function DashboardNew() {
@@ -15,7 +19,7 @@ export default function DashboardNew() {
 
     useEffect(() => {
         let forecast = JSON.parse(localStorage.getItem("forecast"));
-        // console.log(forecast);
+        console.log(forecast);
         set_long_term_forecast(forecast.long_term_forecast);
         set_timestamp(forecast.timestamp);
         set_xgboost_mae(forecast.xgboost_mae);
@@ -25,8 +29,14 @@ export default function DashboardNew() {
     }, []);
     return (
         <div className="dashboard-new">
-            <h1>Dashboard New</h1>
+            <BusinessInsights insights={business_insights} />
             <LongTermForecast long_term_forecast={long_term_forecast} />
+            {/* <ModelMetrics
+                timestamp={timestamp}
+                xgboost_mae={xgboost_mae}
+                lstm_mae={lstm_mae}
+                demand_trends={demand_trends}
+            /> */}
         </div>
     )
 }

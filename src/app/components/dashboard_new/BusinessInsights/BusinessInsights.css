@@ -1,0 +1,108 @@
+/* components/dashboard_new/BusinessInsights/BusinessInsights.css */
+.business-insights {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 15px;
+  /* margin-bottom: 20px; */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.business-insights h2 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 6px;
+}
+
+.top-insights-container {
+  display: flex;
+  gap: 20px; /* Space between the four boxes and SHAP features */
+  margin-bottom: 15px; /* Space below this container */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.basic-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, auto)); /* Force 2 columns */
+  gap: 10px;
+  flex-grow: 1; /* Allow the grid to take available space */
+}
+
+.insight-item {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+
+.insight-label {
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-size: 0.85rem;
+}
+
+.insight-value {
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* Inline SHAP Features */
+.shap-features-inline {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align list to the start */
+  min-width: 200px; /* Minimum width for the SHAP section */
+}
+
+.shap-features-inline .insight-label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.shap-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.shap-list li {
+  background-color: #e9ecef;
+  color: #333;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  /* Try to fit three items in a row, then wrap */
+  flex-basis: calc(33.33% - 5px); /* Adjust the subtraction for gap */
+}
+
+/* Remaining Insights Grid */
+.remaining-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+  gap: 10px;
+  margin-top: 10px; /* Space above the remaining insights */
+}
+
+/* Timestamp (can remain as a full-width item in the remaining grid) */
+.insight-item.timestamp-item {
+  background-color: #e9ecef;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.insight-item.timestamp-item .insight-label {
+  margin-right: 10px;
+}
