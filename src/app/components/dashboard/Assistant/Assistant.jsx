@@ -1,12 +1,14 @@
 import "./Assistant.css";
 
+import Image from "next/image";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 import { Bot, User } from "lucide-react";
 import { marked } from "marked";
 
-export default function Assistant({ monthlyProjection, salesForecast, totalSales, pricingStrategy, stockSummary }) {
+export default function Assistant({ insights, long_term_forecast }) {
 
     const [messages, setMessages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -14,8 +16,8 @@ export default function Assistant({ monthlyProjection, salesForecast, totalSales
 
     const getChatbotResponse = async () => {
         setIsLoading(true);
-        if (totalSales) {
-            const jsonData = { monthlyProjection, salesForecast, totalSales, pricingStrategy, stockSummary };
+        if (insights) {
+            const jsonData = { insights, long_term_forecast };
             const stringData = JSON.stringify(jsonData);
             await axios.post("/api/getChatbot/", { message, context: stringData })
             .then(response => {
@@ -38,7 +40,9 @@ export default function Assistant({ monthlyProjection, salesForecast, totalSales
 
             {
                 isLoading &&
-                <div className="loading-screen">Loading...</div>
+                <div className="loading-screen">
+                    <Image src="/critical-thinking.gif" height={500} width={500} alt="close assistant" />
+                </div>
             }
 
             <div className="chatbot">

@@ -3,4 +3,49 @@
     height: 100svh;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.open-ai {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.open-ai img {
+    width: 80%;
+    height: 80%;
+}
+
+.assistant-wrapper {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    width: 40%;
+    height: 100svh;
+}
+
+.close-assistant {
+    width: 50px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-105%, -50%);
+    cursor: pointer;
+    color: white;
+}
+.close-assistant img {
+    width: 100%;
+    height: 100%;
 }
