@@ -35,19 +35,20 @@ export default function FileUpload() {
             });
 
             setUploaded(true);
+            localStorage.setItem("forecast", JSON.stringify(res.data));
             // console.log("Forecast API Response:", res.data);
-            await axios.post("/api/store-data", {forecast: res.data})
-            .then(response => {
+            // await axios.post("/api/store-data", {forecast: res.data})
+            // .then(response => {
                 // console.log(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+            // })
+            // .catch(error => {
+            //     console.log(error);
+            // });
         } catch (err) {
             console.error("Upload Error:", err);
         } finally {
             setLoading(false);
-            redirect("/dashboard");
+            redirect("/dashboard-new");
         }
     };
 
